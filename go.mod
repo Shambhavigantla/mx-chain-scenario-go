@@ -1,10 +1,12 @@
 module github.com/multiversx/mx-chain-scenario-go
 
-go 1.23.0
+go 1.24.0
+
+toolchain go1.24.9
 
 replace (
 	github.com/multiversx/mx-chain-core-go => github.com/multiversx/mx-chain-core-sovereign-go v1.2.25-0.20251016085427-f3e9cd4fff15
-	github.com/multiversx/mx-chain-vm-common-go => github.com/multiversx/mx-chain-vm-common-sovereign-go v1.5.17-0.20251016123444-a7a3b96ac77b
+	github.com/multiversx/mx-chain-vm-common-go => github.com/multiversx/mx-chain-vm-common-sovereign-go v1.5.17-0.20251016124243-eee69b57b5c1
 )
 
 require (
@@ -31,9 +33,9 @@ require (
 	github.com/gogo/protobuf v1.3.2 // indirect
 	github.com/golang/protobuf v1.5.4 // indirect
 	github.com/holiman/uint256 v1.2.4 // indirect
-	github.com/mitchellh/mapstructure v1.5.0 // indirect
+	github.com/mitchellh/mapstructure v1.4.1 // indirect
 	github.com/mr-tron/base58 v1.2.0 // indirect
-	github.com/multiversx/mx-sdk-abi-go v0.3.0 // indirect
+	github.com/multiversx/mx-sdk-abi-go v0.3.1-0.20250423092559-f01fdd10b35d // indirect
 	github.com/pelletier/go-toml v1.9.3 // indirect
 	github.com/pmezard/go-difflib v1.0.0 // indirect
 	github.com/russross/blackfriday/v2 v2.1.0 // indirect

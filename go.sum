@@ -82,8 +82,8 @@ github.com/jrick/logrotate v1.0.0/go.mod h1:LNinyqDIJnpAur+b8yyulnQw/wDuN1+BYKlT
 github.com/kisielk/errcheck v1.5.0/go.mod h1:pFxgyoBC7bSaBwPgfKdkLd5X25qrDl4LWUI2bnpBCr8=
 github.com/kisielk/gotool v1.0.0/go.mod h1:XhKaO+MFFWcvkIS/tQcRk01m1F5IRFswLeQ+oQHNcck=
 github.com/kkdai/bstream v0.0.0-20161212061736-f391b8402d23/go.mod h1:J+Gs4SYgM6CZQHDETBtE9HaSEkGmuNXF86RwHhHUvq4=
-github.com/mitchellh/mapstructure v1.5.0 h1:jeMsZIYE/09sWLaz43PL7Gy6RuMjD2eJVyuac5Z2hdY=
-github.com/mitchellh/mapstructure v1.5.0/go.mod h1:bFUtVrKA4DC2yAKiSyO/QUcy7e+RRV2QTWOzhPopBRo=
+github.com/mitchellh/mapstructure v1.4.1 h1:CpVNEelQCZBooIPDn+AR3NpivK/TIKU8bDxdASFVQag=
+github.com/mitchellh/mapstructure v1.4.1/go.mod h1:bFUtVrKA4DC2yAKiSyO/QUcy7e+RRV2QTWOzhPopBRo=
 github.com/mmcloughlin/addchain v0.4.0 h1:SobOdjm2xLj1KkXN5/n0xTIWyZA2+s99UCY1iPfkHRY=
 github.com/mmcloughlin/addchain v0.4.0/go.mod h1:A86O+tHqZLMNO4w6ZZ4FlVQEadcoqkyU72HC5wJ4RlU=
 github.com/mr-tron/base58 v1.2.0 h1:T/HDJBh4ZCPbU39/+c3rRvE0uKBQlU27+QI8LJ4t64o=
@@ -94,12 +94,12 @@ github.com/multiversx/mx-chain-crypto-go v1.3.1-0.20251016113715-522462f8de2c h1
 github.com/multiversx/mx-chain-crypto-go v1.3.1-0.20251016113715-522462f8de2c/go.mod h1:uQRpb30oxGpvqsbnMzAYEBJ6vt8OzaoH8Sh3s/2MGZ4=
 github.com/multiversx/mx-chain-logger-go v1.1.0 h1:97x84A6L4RfCa6YOx1HpAFxZp1cf/WI0Qh112whgZNM=
 github.com/multiversx/mx-chain-logger-go v1.1.0/go.mod h1:K9XgiohLwOsNACETMNL0LItJMREuEvTH6NsoXWXWg7g=
-github.com/multiversx/mx-chain-vm-common-sovereign-go v1.5.17-0.20251016123444-a7a3b96ac77b h1:FRL59/3CNZKufZrvDUgFIDPExzIohYi0sNbI/LB1FtY=
-github.com/multiversx/mx-chain-vm-common-sovereign-go v1.5.17-0.20251016123444-a7a3b96ac77b/go.mod h1:D6YVquSR9rBKtJAzaMmNAvp/TXVedIcStwYg1ozdbDM=
+github.com/multiversx/mx-chain-vm-common-sovereign-go v1.5.17-0.20251016124243-eee69b57b5c1 h1:plEoGY9vv1xbyWWAQ25DDTzQBpXZRtMrDdaK+ZbCqsA=
+github.com/multiversx/mx-chain-vm-common-sovereign-go v1.5.17-0.20251016124243-eee69b57b5c1/go.mod h1:MAxpPWt9mbKFi1TuA/cK/yzl639Uz9CzjHEFubySMr0=
 github.com/multiversx/mx-components-big-int v1.1.0 h1:7aSJKago6vJQy9JeMOBRDYKHvsrj9OmrFWOucFUV+Kg=
 github.com/multiversx/mx-components-big-int v1.1.0/go.mod h1:kcWw7hDe6cSz1wcBAqj/6sFH6ouSPsNeH9P7XlpZRcw=
-github.com/multiversx/mx-sdk-abi-go v0.3.0 h1:WX7OUhYZbgaSvP4HE23DjFv5SMZ1/5F4Vp7K83B+VHY=
-github.com/multiversx/mx-sdk-abi-go v0.3.0/go.mod h1:++ds6BB47LrXl8a9N2VGRBzHCfl6kkxRCHb31a5z61g=
+github.com/multiversx/mx-sdk-abi-go v0.3.1-0.20250423092559-f01fdd10b35d h1:1GZdV0gNxxOBQG3BhJmTn0/a57o1pv2MstFL16eXbnI=
+github.com/multiversx/mx-sdk-abi-go v0.3.1-0.20250423092559-f01fdd10b35d/go.mod h1:++ds6BB47LrXl8a9N2VGRBzHCfl6kkxRCHb31a5z61g=
 github.com/nxadm/tail v1.4.4/go.mod h1:kenIhsEOeOJmVchQTgglprH7qJGnHDVpk1VPCcaMI8A=
 github.com/onsi/ginkgo v1.6.0/go.mod h1:lLunBs/Ym6LB5Z9jYTR76FiuTmxDTDusOGeTQH+WWjE=
 github.com/onsi/ginkgo v1.7.0/go.mod h1:lLunBs/Ym6LB5Z9jYTR76FiuTmxDTDusOGeTQH+WWjE=
