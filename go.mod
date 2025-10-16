@@ -1,8 +1,6 @@
 module github.com/multiversx/mx-chain-scenario-go
 
-go 1.24.0
-
-toolchain go1.24.9
+go 1.23.0
 
 replace (
 	github.com/multiversx/mx-chain-core-go => github.com/multiversx/mx-chain-core-sovereign-go v1.2.25-0.20251016085427-f3e9cd4fff15
