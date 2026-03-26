@@ -9,6 +9,8 @@ func TestScenariosSelfTest(t *testing.T) {
 	ScenariosTest(t).
 		Folder("scenarios-self-test").
 		Exclude("scenarios-self-test/builtin-func-esdt-transfer.scen.json").
+		Exclude("scenarios-self-test/drwa-transfer-denied-kyc.scen.json").
+		Exclude("scenarios-self-test/drwa-transfer-denied-paused.scen.json").
 		Exclude("scenarios-self-test/esdt-zero-balance-check-err.scen.json").
 		Exclude("scenarios-self-test/esdt-non-zero-balance-check-err.scen.json").
 		Run().
@@ -214,4 +216,52 @@ func TestScenariosTransferEsdtToNonexistingAccount(t *testing.T) {
 		File("transfer-esdt-to-nonexisting-account.scen.json").
 		Run().
 		CheckNoError()
+}
+
+func TestScenariosDRWAStateShape(t *testing.T) {
+	ScenariosTest(t).
+		Folder("scenarios-self-test").
+		File("drwa-state-shape.scen.json").
+		Run().
+		CheckNoError()
+}
+
+func TestScenariosDRWARecoveryDrill(t *testing.T) {
+	ScenariosTest(t).
+		Folder("scenarios-self-test").
+		File("drwa-recovery-drill.scen.json").
+		Run().
+		CheckNoError()
+}
+
+func TestScenariosDRWARolloutCanaryPromotion(t *testing.T) {
+	ScenariosTest(t).
+		Folder("scenarios-self-test").
+		File("drwa-rollout-canary-promotion.scen.json").
+		Run().
+		CheckNoError()
+}
+
+func TestScenariosDRWARolloutThresholdBreach(t *testing.T) {
+	ScenariosTest(t).
+		Folder("scenarios-self-test").
+		File("drwa-rollout-threshold-breach.scen.json").
+		Run().
+		CheckNoError()
+}
+
+func TestScenariosDRWATransferDeniedKYC(t *testing.T) {
+	ScenariosTest(t).
+		Folder("scenarios-self-test").
+		File("drwa-transfer-denied-kyc.scen.json").
+		Run().
+		RequireErrorContains("DRWA_KYC_REQUIRED")
+}
+
+func TestScenariosDRWATransferDeniedPaused(t *testing.T) {
+	ScenariosTest(t).
+		Folder("scenarios-self-test").
+		File("drwa-transfer-denied-paused.scen.json").
+		Run().
+		RequireErrorContains("DRWA_TOKEN_PAUSED")
 }

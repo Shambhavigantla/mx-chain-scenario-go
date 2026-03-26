@@ -1,0 +1,48 @@
+{
+    "comment": "DRWA transfer denial through the live builtin ESDT transfer path when sender KYC is not approved",
+    "steps": [
+        {
+            "step": "setState",
+            "accounts": {
+                "0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff": {
+                    "storage": {
+                        "str:drwa:token:CARBON-123:policy": "0x7b22647277615f656e61626c6564223a747275652c22676c6f62616c5f7061757365223a66616c73657d"
+                    }
+                },
+                "address:sender": {
+                    "nonce": "0",
+                    "balance": "0x1000000000",
+                    "esdt": {
+                        "str:CARBON-123": "10"
+                    },
+                    "storage": {
+                        "str:drwa:holder:CARBON-123:sender": "0x7b226b79635f737461747573223a2270656e64696e67222c22616d6c5f737461747573223a22617070726f766564227d"
+                    }
+                },
+                "address:receiver": {
+                    "nonce": "0",
+                    "balance": "0x1000000000",
+                    "storage": {
+                        "str:drwa:holder:CARBON-123:receiver": "0x7b226b79635f737461747573223a22617070726f766564222c22616d6c5f737461747573223a22617070726f766564227d"
+                    }
+                }
+            }
+        },
+        {
+            "step": "transfer",
+            "id": "denied-transfer",
+            "tx": {
+                "from": "address:sender",
+                "to": "address:receiver",
+                "esdtValue": [
+                    {
+                        "tokenIdentifier": "str:CARBON-123",
+                        "value": "1"
+                    }
+                ],
+                "gasLimit": "0x100000000",
+                "gasPrice": "0x01"
+            }
+        }
+    ]
+}

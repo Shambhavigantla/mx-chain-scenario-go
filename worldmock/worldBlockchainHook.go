@@ -148,6 +148,18 @@ func (b *MockWorld) GetStateRootHash() []byte {
 	return b.StateRootHash
 }
 
+// ApplyDRWASyncEnvelopeBytes applies an encoded DRWA sync envelope.
+func (b *MockWorld) ApplyDRWASyncEnvelopeBytes(payload []byte, callerAddress []byte) error {
+	if b.Err != nil {
+		return b.Err
+	}
+	if b.ProvidedBlockchainHook != nil {
+		return b.ProvidedBlockchainHook.ApplyDRWASyncEnvelopeBytes(payload, callerAddress)
+	}
+
+	return nil
+}
+
 // CurrentNonce returns the nonce from the current block
 func (b *MockWorld) CurrentNonce() uint64 {
 	if b.CurrentBlockInfo == nil {

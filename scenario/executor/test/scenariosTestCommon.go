@@ -105,3 +105,9 @@ func (mtb *ScenariosTestBuilder) RequireError(expectedErrorMsg string) *Scenario
 	require.EqualError(mtb.t, mtb.currentError, expectedErrorMsg)
 	return mtb
 }
+
+// RequireErrorContains does a substring assert for the containing error
+func (mtb *ScenariosTestBuilder) RequireErrorContains(expectedErrorMsg string) *ScenariosTestBuilder {
+	require.ErrorContains(mtb.t, mtb.currentError, expectedErrorMsg)
+	return mtb
+}
