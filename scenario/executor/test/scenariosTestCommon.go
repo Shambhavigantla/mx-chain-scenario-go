@@ -2,7 +2,6 @@ package executortest
 
 import (
 	"os"
-	"path"
 	"path/filepath"
 	"testing"
 
@@ -74,8 +73,8 @@ func (mtb *ScenariosTestBuilder) Run() *ScenariosTestBuilder {
 	)
 
 	if len(mtb.singleFile) > 0 {
-		fullPath := path.Join(getTestRoot(), mtb.folder)
-		fullPath = path.Join(fullPath, mtb.singleFile)
+		fullPath := filepath.Join(getTestRoot(), mtb.folder)
+		fullPath = filepath.Join(fullPath, mtb.singleFile)
 
 		mtb.currentError = runner.RunSingleJSONScenario(
 			fullPath,

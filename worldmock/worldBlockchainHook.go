@@ -16,6 +16,7 @@ var _ vmcommon.BlockchainHook = (*MockWorld)(nil)
 
 // ErrBuiltinFuncWrapperNotInitialized means that the builtin function wrapper was used before initialization.
 var ErrBuiltinFuncWrapperNotInitialized = errors.New("builtin function not found or container not initialized")
+var ErrProvidedBlockchainHookNotInitialized = errors.New("provided blockchain hook not initialized")
 
 var zero = big.NewInt(0)
 
@@ -157,7 +158,29 @@ func (b *MockWorld) ApplyDRWASyncEnvelopeBytes(payload []byte, callerAddress []b
 		return b.ProvidedBlockchainHook.ApplyDRWASyncEnvelopeBytes(payload, callerAddress)
 	}
 
-	return nil
+	return ErrProvidedBlockchainHookNotInitialized
+}
+
+// QueryDRWANativeGovernance returns encoded native DRWA governance state.
+func (b *MockWorld) QueryDRWANativeGovernance(queryType uint32, key []byte) ([]byte, error) {
+	if b.Err != nil {
+		return nil, b.Err
+	}
+	if b.ProvidedBlockchainHook != nil {
+		return b.ProvidedBlockchainHook.QueryDRWANativeGovernance(queryType, key)
+	}
+
+	return nil, ErrProvidedBlockchainHookNotInitialized
+}
+
+// IsAuthorizedDRWASyncCaller returns whether the provided address is currently
+// authorized to emit DRWA sync writes.
+func (b *MockWorld) IsAuthorizedDRWASyncCaller(callerAddress []byte) bool {
+	if b.ProvidedBlockchainHook != nil {
+		return b.ProvidedBlockchainHook.IsAuthorizedDRWASyncCaller(callerAddress)
+	}
+
+	return false
 }
 
 // CurrentNonce returns the nonce from the current block
@@ -281,6 +304,10 @@ func (b *MockWorld) GetESDTToken(address []byte, tokenIdentifier []byte, nonce u
 
 // GetBuiltinFunctionNames -
 func (b *MockWorld) GetBuiltinFunctionNames() vmcommon.FunctionNames {
+	if b.BuiltinFuncs == nil {
+		return nil
+	}
+
 	return b.BuiltinFuncs.GetBuiltinFunctionNames()
 }
 

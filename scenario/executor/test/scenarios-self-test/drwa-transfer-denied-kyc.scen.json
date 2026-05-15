@@ -6,7 +6,7 @@
             "accounts": {
                 "0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff": {
                     "storage": {
-                        "str:drwa:token:CARBON-123:policy": "0x7b22647277615f656e61626c6564223a747275652c22676c6f62616c5f7061757365223a66616c73657d"
+                        "str:drwa:token:434152424f4e2d313233:policy": "0x7b2276657273696f6e223a312c22626f6479223a2265794a6b636e64685832567559574a735a5751694f6e527964575573496d647362324a68624639775958567a5a5349365a6d467363325639227d"
                     }
                 },
                 "address:sender": {
@@ -16,14 +16,14 @@
                         "str:CARBON-123": "10"
                     },
                     "storage": {
-                        "str:drwa:holder:CARBON-123:sender": "0x7b226b79635f737461747573223a2270656e64696e67222c22616d6c5f737461747573223a22617070726f766564227d"
+                        "str:drwa:holder:434152424f4e2d313233:73656e6465725f5f5f5f5f5f5f5f5f5f5f5f5f5f5f5f5f5f5f5f5f5f5f5f5f5f": "0x7b2276657273696f6e223a312c22626f6479223a2265794a7265574e66633352686448567a496a6f69634756755a476c755a794973496d46746246397a6447463064584d694f694a686348427962335a6c5a434a39227d"
                     }
                 },
                 "address:receiver": {
                     "nonce": "0",
                     "balance": "0x1000000000",
                     "storage": {
-                        "str:drwa:holder:CARBON-123:receiver": "0x7b226b79635f737461747573223a22617070726f766564222c22616d6c5f737461747573223a22617070726f766564227d"
+                        "str:drwa:holder:434152424f4e2d313233:72656365697665725f5f5f5f5f5f5f5f5f5f5f5f5f5f5f5f5f5f5f5f5f5f5f5f": "0x7b2276657273696f6e223a312c22626f6479223a2265794a7265574e66633352686448567a496a6f6959584277636d39325a5751694c434a6862577866633352686448567a496a6f6959584277636d39325a57516966513d3d227d"
                     }
                 }
             }

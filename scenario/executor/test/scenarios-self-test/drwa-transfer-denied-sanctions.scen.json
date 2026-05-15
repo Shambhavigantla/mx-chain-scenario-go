@@ -1,12 +1,12 @@
 {
-    "comment": "DRWA transfer denial through the live builtin ESDT transfer path when the token policy is globally paused",
+    "comment": "DRWA transfer denial through the live builtin ESDT transfer path when the receiver fails sanctions screening",
     "steps": [
         {
             "step": "setState",
             "accounts": {
                 "0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff": {
                     "storage": {
-                        "str:drwa:token:434152424f4e2d313233:policy": "0x7b2276657273696f6e223a312c22626f6479223a2265794a6b636e64685832567559574a735a5751694f6e527964575573496d647362324a68624639775958567a5a53493664484a315a58303d227d"
+                        "str:drwa:token:434152424f4e2d313233:policy": "0x7b2276657273696f6e223a312c22626f6479223a2265794a6b636e64685832567559574a735a5751694f6e527964575573496d647362324a68624639775958567a5a5349365a6d467363325573496e4e68626d4e30615739756331397a59334a6c5a573570626d64665a573568596d786c5a43493664484a315a58303d227d"
                     }
                 },
                 "address:sender": {
@@ -23,14 +23,14 @@
                     "nonce": "0",
                     "balance": "0x1000000000",
                     "storage": {
-                        "str:drwa:holder:434152424f4e2d313233:72656365697665725f5f5f5f5f5f5f5f5f5f5f5f5f5f5f5f5f5f5f5f5f5f5f5f": "0x7b2276657273696f6e223a312c22626f6479223a2265794a7265574e66633352686448567a496a6f6959584277636d39325a5751694c434a6862577866633352686448567a496a6f6959584277636d39325a57516966513d3d227d"
+                        "str:drwa:holder:434152424f4e2d313233:72656365697665725f5f5f5f5f5f5f5f5f5f5f5f5f5f5f5f5f5f5f5f5f5f5f5f": "0x7b2276657273696f6e223a312c22626f6479223a2265794a7265574e66633352686448567a496a6f6959584277636d39325a5751694c434a6862577866633352686448567a496a6f6959584277636d39325a5751694c434a7a5957356a64476c76626e4e665932786c59584a6c5a4349365a6d467363325639227d"
                     }
                 }
             }
         },
         {
             "step": "transfer",
-            "id": "paused-transfer",
+            "id": "denied-transfer-sanctions",
             "tx": {
                 "from": "address:sender",
                 "to": "address:receiver",
