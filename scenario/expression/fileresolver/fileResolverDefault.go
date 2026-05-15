@@ -1,15 +1,12 @@
 package scenfileresolver
 
 import (
-	"errors"
 	"fmt"
 	"os"
 	"path/filepath"
-	"strings"
 )
 
 var _ FileResolver = (*DefaultFileResolver)(nil)
-var ErrPathEscapesContext = errors.New("resolved path escapes scenario context")
 
 // DefaultFileResolver loads file contents for the test parser.
 type DefaultFileResolver struct {
@@ -61,46 +58,15 @@ func (fr *DefaultFileResolver) SetContext(contextPath string) {
 }
 
 // ResolveAbsolutePath yields absolute value based on context.
-func (fr *DefaultFileResolver) ResolveAbsolutePath(value string) (string, error) {
+func (fr *DefaultFileResolver) ResolveAbsolutePath(value string) string {
+	var fullPath string
 	if replacement, shouldReplace := fr.contractPathReplacements[value]; shouldReplace {
-		return filepath.Clean(replacement), nil
+		fullPath = replacement
+	} else {
+		testDirPath := filepath.Dir(fr.contextPath)
+		fullPath = filepath.Join(testDirPath, value)
 	}
-
-	testDirPath, err := filepath.Abs(filepath.Clean(filepath.Dir(fr.contextPath)))
-	if err != nil {
-		return "", err
-	}
-	resolutionRoot := findResolutionRoot(testDirPath)
-	cleanValue := filepath.Clean(value)
-	if filepath.IsAbs(cleanValue) {
-		return "", fmt.Errorf("%w: %s", ErrPathEscapesContext, value)
-	}
-
-	fullPath := filepath.Join(testDirPath, cleanValue)
-	relPath, err := filepath.Rel(resolutionRoot, fullPath)
-	if err != nil {
-		return "", err
-	}
-	if relPath == ".." || strings.HasPrefix(relPath, ".."+string(os.PathSeparator)) {
-		return "", fmt.Errorf("%w: %s", ErrPathEscapesContext, value)
-	}
-
-	return fullPath, nil
-}
-
-func findResolutionRoot(startDir string) string {
-	current := filepath.Clean(startDir)
-	for {
-		if _, err := os.Stat(filepath.Join(current, "go.mod")); err == nil {
-			return current
-		}
-
-		parent := filepath.Dir(current)
-		if parent == current {
-			return startDir
-		}
-		current = parent
-	}
+	return fullPath
 }
 
 // ResolveFileValue converts a value prefixed with "file:" and replaces it with the file contents.
@@ -108,10 +74,7 @@ func (fr *DefaultFileResolver) ResolveFileValue(value string) ([]byte, error) {
 	if len(value) == 0 {
 		return []byte{}, nil
 	}
-	fullPath, err := fr.ResolveAbsolutePath(value)
-	if err != nil {
-		return []byte{}, err
-	}
+	fullPath := fr.ResolveAbsolutePath(value)
 	scCode, err := os.ReadFile(fullPath)
 	if err != nil {
 		if fr.allowMissingFiles {
