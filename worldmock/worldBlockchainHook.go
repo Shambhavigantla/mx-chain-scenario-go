@@ -158,6 +158,11 @@ func (b *MockWorld) ApplyDRWASyncEnvelopeBytes(payload []byte, callerAddress []b
 		return b.ProvidedBlockchainHook.ApplyDRWASyncEnvelopeBytes(payload, callerAddress)
 	}
 
+	_, isAuthorized := b.AuthorizedDRWASyncCallers[string(callerAddress)]
+	if isAuthorized {
+		return nil
+	}
+
 	return ErrProvidedBlockchainHookNotInitialized
 }
 
@@ -180,7 +185,8 @@ func (b *MockWorld) IsAuthorizedDRWASyncCaller(callerAddress []byte) bool {
 		return b.ProvidedBlockchainHook.IsAuthorizedDRWASyncCaller(callerAddress)
 	}
 
-	return false
+	_, ok := b.AuthorizedDRWASyncCallers[string(callerAddress)]
+	return ok
 }
 
 // CurrentNonce returns the nonce from the current block

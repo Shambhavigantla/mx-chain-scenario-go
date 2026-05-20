@@ -57,14 +57,14 @@ type ExternalStepsStep struct {
 
 // SetStateStep is a step where data is saved to the blockchain mock.
 type SetStateStep struct {
-	SetStateIdent             string
-	Comment                   string
-	Accounts                  []*Account
-	PreviousBlockInfo         *BlockInfo
-	CurrentBlockInfo          *BlockInfo
-	BlockHashes               JSONValueList
+	SetStateIdent     string
+	Comment           string
+	Accounts          []*Account
+	PreviousBlockInfo *BlockInfo
+	CurrentBlockInfo  *BlockInfo
+	BlockHashes       JSONValueList
 	NewAddressMocks           []*NewAddressMock
-	AuthorizedDRWASyncCallers []string
+	AuthorizedDRWASyncCallers []JSONBytesFromString
 }
 
 // CheckStateStep is a step where the state of the blockchain mock is verified.
