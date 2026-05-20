@@ -9,7 +9,7 @@ type FileResolver interface {
 	SetContext(contextPath string)
 
 	// ResolveAbsolutePath yields absolute value based on context.
-	ResolveAbsolutePath(value string) (string, error)
+	ResolveAbsolutePath(value string) string
 
 	// ResolveFileValue converts a value prefixed with "file:" and replaces it with the file contents.
 	ResolveFileValue(value string) ([]byte, error)
